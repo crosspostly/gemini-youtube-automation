@@ -58,7 +58,7 @@ def text_to_speech(text, output_path):
         temp_mp3_path = str(output_path).replace('.mp3', '_temp.mp3')
         wav_path = str(output_path.with_suffix('.wav'))
 
-        tts = gTTS(text=text, lang='en', slow=False)
+        tts = gTTS(text=text, lang='ru', slow=False)
         tts.save(temp_mp3_path)
 
         audio = AudioSegment.from_mp3(temp_mp3_path)
@@ -88,7 +88,7 @@ def generate_curriculum(previous_titles=None):
             history = f"The following lessons have already been created:\n{formatted}\n\nPlease continue from where this series left off.\n"
 
         prompt = f"""
-        You are an expert AI educator. Generate a curriculum for a YouTube series called 'AI for Developers by {YOUR_NAME}'.
+        You are an expert AI educator. Generate a curriculum for a YouTube series called '{YOUR_NAME}'.
         {history}
         The style must be: 'Assume the viewer is a beginner or non-technical person starting their journey into AI as a developer.
         Use simple real-world analogies, relatable examples, and then connect to technical concepts.'
